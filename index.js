@@ -28,6 +28,6 @@ app.get("/tra-cuu-mst/:mst",async (req,res)=>{
   res.json(response);
 });
 
-app.listen(8080,()=>{
-  console.log("server listening on port 8080");
+app.listen(80,()=>{
+  console.log("server listening on port 80");
 })
