@@ -34,7 +34,7 @@ module.exports = function(mst) {
 
             resolve(infoDoanhNghiep);
           }else{
-            reject(error.toString());
+            reject("statusCode: "+response.statusCode);
           }
         }
         request(options, callback);
