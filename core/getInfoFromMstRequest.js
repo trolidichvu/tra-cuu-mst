@@ -46,9 +46,13 @@ module.exports = function(mst) {
   });
 }
 
-
+//Tên quốc tế, Tên viết tắt, Loại hình DN, Tình trạng
 let xuLyTr=function (infoDoanhNghiep,tr) {
-  if(tr.includes("Mã số thuế")){
+  if(tr.includes("Tên quốc tế")){
+    infoDoanhNghiep.tenQuocTe = tr.split('Tên quốc tế')[1].trim();
+  }else if(tr.includes("Tên viết tắt")){
+    infoDoanhNghiep.tenVietTat = tr.split('Tên viết tắt')[1].trim();
+  }else if(tr.includes("Mã số thuế")){
     infoDoanhNghiep.maSoThue = tr.split('Mã số thuế')[1].trim();
   }else if(tr.includes("Địa chỉ")){
     infoDoanhNghiep.diaChi = tr.split('Địa chỉ')[1].trim();
@@ -60,9 +64,13 @@ let xuLyTr=function (infoDoanhNghiep,tr) {
     infoDoanhNghiep.ngayHoatDong = tr.split('Ngày hoạt động')[1].trim()
   }else if(tr.includes("Quản lý bởi")){
     infoDoanhNghiep.quanLyBoi = tr.split('Quản lý bởi')[1].trim()
+  }else if(tr.includes("Loại hình DN")){
+    infoDoanhNghiep.loaiHinhDN = tr.split('Loại hình DN')[1].trim()
+  }else if(tr.includes("Tình trạng")){
+    infoDoanhNghiep.tinhTrang = tr.split('Tình trạng')[1].trim()
   }else if(tr.includes("Cập nhật mã số thuế")){
-    infoDoanhNghiep.lastUpdate = tr
+    infoDoanhNghiep.lastUpdate = tr;
   }else{
-    console.log(tr);
+    infoDoanhNghiep.chuaXacDinh+= tr;
   }
 }
